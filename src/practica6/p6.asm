@@ -18,7 +18,6 @@ section .text
     
 _start:   
    
-
 .switch     mov edx, msg3
             call puts
             call getche        ;devuelve ascii 
@@ -71,8 +70,7 @@ _start:
             call puts       ;imprime
             jmp .switch
 ;------------------------------------------------------------
-    
-    
+     
     ; --- FIN DE PROGRAMA ---
     .fin_programa: 
         mov edx, nline    
@@ -114,11 +112,10 @@ _start:
         mov al,0x8           
         call putchar        ;se mueve una posicion hacia atras (control)
         dec edx
+        
 .terminar   pop ax              
             ret 
 ;------------------------------------------------------------
-
-
 
 ;------------------------------------------------------------
     mayus:
@@ -145,7 +142,6 @@ _start:
     
 ;------------------------------------------------------------
 
-
 ;------------------------------------------------------------
     minus:
             push ax
@@ -165,9 +161,7 @@ _start:
             inc edx
             jmp .ciclo
 
-
 .terminar:  pop ax
             ret
-    
-;------------------------------------------------------------
 
+;------------------------------------------------------------
