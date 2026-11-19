@@ -7,7 +7,7 @@ section .data
     lencadena equ 255
     ln equ 10
     nline db ln,0
-    menu db ln,"---Menu---",ln,"(1) - Capturar cadena",ln,"(2) - Mayus a minus",ln,"(3) - Minus a mayus",ln,"Escoge una opcion: ",0
+    menu db ln,ln,"---Menu---",ln,"(1) - Capturar cadena",ln,"(2) - Mayus a minus",ln,"(3) - Minus a mayus",ln,"Escoge una opcion: ",0
     capturac db ln,"Captura una cadena: ",0
     capturada db ln,"Cadena: ",0
     resultado db ln,"Resultado: ",0
@@ -24,7 +24,7 @@ section .text
             push menu
             call puts
             add esp,4
-
+            mov al, 2
             call getche
             cmp al, "1"
             je .case1
@@ -42,9 +42,17 @@ section .text
             call puts
             add esp, 4
 
-
             mov edi, cadena
             call captura
+
+            push capturada
+            call puts
+            add esp, 4
+
+            push cadena
+            call puts
+            add esp, 4
+
 
             jmp .switch
 
